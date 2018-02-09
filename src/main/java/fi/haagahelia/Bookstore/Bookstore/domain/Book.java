@@ -9,20 +9,21 @@ import javax.persistence.Id;
 public class Book {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long isbn;
-	private String title, author;
+	private Long id;
+	private String title, author, isbn;
 	private int year;
 	private Double price;
 
 	public Book() {
 	};
 
-	public Book(String title, String author, int year, Double price) {
+	public Book(String title, String author, String isbn, int year, Double price) {
 		super();
 		this.title = title;
 		this.author = author;
 		this.year = year;
 		this.price = price;
+		this.isbn = isbn;
 	}
 
 	public String getTitle() {
@@ -49,11 +50,11 @@ public class Book {
 		this.year = year;
 	}
 
-	public Long getIsbn() {
+	public String getIsbn() {
 		return isbn;
 	}
 
-	public void setIsbn(Long isbn) {
+	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
 
@@ -65,4 +66,16 @@ public class Book {
 		this.price = price;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "Book isbn=" + isbn + ", title=" + title + ",author=" + ", year=" + year + ", price=" + price;
+	}
 }

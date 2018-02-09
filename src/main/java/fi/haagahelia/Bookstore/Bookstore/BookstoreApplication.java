@@ -19,8 +19,8 @@ public class BookstoreApplication {
 	public CommandLineRunner demo(BookRepository repository) {
 		return (args) -> {
 			// Your code...add some demo data to db
-			Book b1 = new Book("Sans Famille", "Hector Malot", 1878, 50.5);
-			Book b2 = new Book("Oliver Twist", "Charles Dickens", 1837, 45.5);
+			Book b1 = new Book("Sans Famille", "Hector Malot","123232323-21", 1878, 50.5);
+			Book b2 = new Book("Oliver Twist", "Charles Dickens","2212343-5", 1837, 45.5);
 
 			repository.save(b1);
 			repository.save(b2);
