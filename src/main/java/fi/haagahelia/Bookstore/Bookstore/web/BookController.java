@@ -26,7 +26,7 @@ public class BookController {
 		model.addAttribute("book", new Book());
 		return "addBook";
 	}
-
+ // add book then save book.
 	@RequestMapping("/save")
 	public String saveBook(Book book) {
 		repository.save(book);
