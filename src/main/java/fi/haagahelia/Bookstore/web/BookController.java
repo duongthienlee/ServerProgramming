@@ -1,4 +1,4 @@
-package fi.haagahelia.Bookstore.Bookstore.web;
+package fi.haagahelia.Bookstore.web;
 
 import java.util.List;
 
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import fi.haagahelia.Bookstore.Bookstore.domain.Book;
-import fi.haagahelia.Bookstore.Bookstore.domain.BookRepository;
-import fi.haagahelia.Bookstore.Bookstore.domain.CategoryRepository;
+import fi.haagahelia.Bookstore.domain.Book;
+import fi.haagahelia.Bookstore.domain.BookRepository;
+import fi.haagahelia.Bookstore.domain.CategoryRepository;
 
 @Controller
 public class BookController {

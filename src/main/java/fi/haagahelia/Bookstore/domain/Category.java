@@ -1,4 +1,4 @@
-package fi.haagahelia.Bookstore.Bookstore.domain;
+package fi.haagahelia.Bookstore.domain;
 
 import java.util.List;
 
