@@ -41,10 +41,6 @@ public class BookController {
 		return (Book) repository.findOne(bookId);
 	}
 	
-	
-	
-	
-	
 	//Add book
 	@RequestMapping(value ="/add")
 	public String createBook(Model model) {

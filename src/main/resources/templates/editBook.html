@@ -2,10 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Add Book</title>
+<title>Edit Book</title>
 </head>
 <body>
-	<h1>Add Book</h1>
+	<h1>Edit Book</h1>
 <div>
 	<form th:object="${book}" th:action="@{save}" action="#" method="post">
 		<input type="hidden" id="id" th:field="*{id}" />
@@ -19,6 +19,7 @@
 		<input type="number" th:field="*{year}" />
 		<label for="price">Price</label>
 		<input type="number" th:field="*{price}" />
+		<input type="hidden" id="categoryid" th:field="*{category.categoryid}" />
 		<input type="submit" value="Save"></input>
 	</form>
 </div>
