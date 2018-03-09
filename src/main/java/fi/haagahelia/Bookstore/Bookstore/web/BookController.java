@@ -17,58 +17,65 @@ import fi.haagahelia.Bookstore.Bookstore.domain.CategoryRepository;
 @Controller
 public class BookController {
 	@Autowired
-	private BookRepository repository;
+	private BookRepository brepository;
 
 	@Autowired
 	private CategoryRepository crepository;
-	
-	//Display books
-	@RequestMapping(value="/booklist")
+
+	// Display books
+	@RequestMapping(value = "/booklist")
 	public String books(Model model) {
-		model.addAttribute("books", repository.findAll());
+		model.addAttribute("books", brepository.findAll());
 		return "Listpage";
 	}
 
-	//Restful service to return all books
-	@RequestMapping(value="/books", method = RequestMethod.GET)
+	// Restful service to return all books
+	@RequestMapping(value = "/books", method = RequestMethod.GET)
 	public @ResponseBody List<Book> bookListRest() {
-		return (List<Book>) repository.findAll();
-	} 
-	
-	// Restful service to find book by id
-	@RequestMapping(value="/book/{id}", method = RequestMethod.GET)
-	public @ResponseBody Book findBookRest(@PathVariable("id") Long bookId) {
-		return (Book) repository.findOne(bookId);
+		return (List<Book>) brepository.findAll();
 	}
-	
-	//Add book
-	@RequestMapping(value ="/add")
+
+	// Restful service to find book by id
+	@RequestMapping(value = "/book/{id}", method = RequestMethod.GET)
+	public @ResponseBody Book findBookRest(@PathVariable("id") Long bookId) {
+		return (Book) brepository.findOne(bookId);
+	}
+
+	// Add book
+	@RequestMapping(value = "/add")
 	public String createBook(Model model) {
 		model.addAttribute("book", new Book());
 		model.addAttribute("categories", crepository.findAll());
 		return "addBook";
 	}
- // add book then save book.
+
+	// add book then save book.
 	@RequestMapping("/save")
 	public String saveBook(Book book) {
-		repository.save(book);
+		brepository.save(book);
 		return "redirect:booklist";
 	}
 
-	//Delete book
+	// Delete book
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public String deleteBook(@PathVariable("id") Long bookId, Model model) {
-		repository.delete(bookId);
+		brepository.delete(bookId);
 		return "redirect:../booklist";
 
 	}
-	
-	//Edit book
+
+	// Edit book
 	@RequestMapping(value = "/edit{id}")
 	public String findBook(@PathVariable("id") Long bookid, Model model) {
-		model.addAttribute("book", repository.findOne(bookid));
+		model.addAttribute("book", brepository.findOne(bookid));
 		return "editBook";
 
 	}
+
+	// Login
+	 @RequestMapping(value="/login")
+		public String login() {
+			return "login";
+		}   
 
 }
