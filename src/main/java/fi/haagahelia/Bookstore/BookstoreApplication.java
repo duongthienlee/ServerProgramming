@@ -13,7 +13,6 @@ import fi.haagahelia.Bookstore.domain.BookRepository;
 import fi.haagahelia.Bookstore.domain.Category;
 import fi.haagahelia.Bookstore.domain.CategoryRepository;
 
-
 @SpringBootApplication
 public class BookstoreApplication {
 	private static final Logger log = LoggerFactory.getLogger(BookstoreApplication.class);
@@ -42,8 +41,6 @@ public class BookstoreApplication {
 					crepository.findByName("Horror").get(0)));
 			brepository.save(new Book("Jurassic Park", "Michael Crichton", "	0-394-58816-9", 1990, 100.0,
 					crepository.findByName("Action and Adventure").get(0)));
-
-		
 
 			log.info("fetch all books");
 			for (Book book : brepository.findAll()) {

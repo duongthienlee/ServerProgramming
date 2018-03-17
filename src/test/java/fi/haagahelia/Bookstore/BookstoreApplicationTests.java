@@ -16,10 +16,11 @@ public class BookstoreApplicationTests {
 
 	@Autowired
 	private BookController controller;
-	//Smoke testing
+
+	// Smoke testing
 	@Test
 	public void contexLoads() throws Exception {
 		assertThat(controller).isNotNull();
-		}
+	}
 
 }
