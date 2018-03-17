@@ -1,4 +1,4 @@
-package fi.haagahelia.Bookstore.Bookstore;
+package fi.haagahelia.Bookstore;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -56,7 +56,7 @@ public class BookstoreRepositoryTest {
 
 		// Verify that the deleted book exists in the repository or not, If false,
 		// then it has been deleted
-		assertThat(crepository.exists(book.getId())).isFalse();
+		assertThat(repository.exists(book.getId())).isFalse();
 	}
 
 	@Test
@@ -64,7 +64,9 @@ public class BookstoreRepositoryTest {
 		// Add a new Category for testing
 		Category category = new Category("IT");
 		crepository.save(category);
-		assertThat(category.getCategoryid()).isNotNull();
+
+		// assert that the added category is in the Category repository
+		assertThat(crepository.findOne(category.getCategoryid())).isNotNull();
 
 		// now delete the added book out of crepository
 		crepository.delete(category.getCategoryid());

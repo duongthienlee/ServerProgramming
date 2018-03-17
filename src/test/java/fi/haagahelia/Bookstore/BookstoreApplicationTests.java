@@ -1,4 +1,4 @@
-package fi.haagahelia.Bookstore.Bookstore;
+package fi.haagahelia.Bookstore;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
