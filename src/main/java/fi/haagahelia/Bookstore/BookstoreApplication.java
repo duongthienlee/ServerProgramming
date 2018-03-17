@@ -12,8 +12,7 @@ import fi.haagahelia.Bookstore.domain.Book;
 import fi.haagahelia.Bookstore.domain.BookRepository;
 import fi.haagahelia.Bookstore.domain.Category;
 import fi.haagahelia.Bookstore.domain.CategoryRepository;
-import fi.haagahelia.Bookstore.domain.User;
-import fi.haagahelia.Bookstore.domain.UserRepository;
+
 
 @SpringBootApplication
 public class BookstoreApplication {
@@ -24,8 +23,7 @@ public class BookstoreApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demo(BookRepository brepository, CategoryRepository crepository,
-			UserRepository urepository) {
+	public CommandLineRunner demo(BookRepository brepository, CategoryRepository crepository) {
 		return (args) -> {
 			log.info("save books");
 			crepository.save(new Category("Novel"));
@@ -45,13 +43,7 @@ public class BookstoreApplication {
 			brepository.save(new Book("Jurassic Park", "Michael Crichton", "	0-394-58816-9", 1990, 100.0,
 					crepository.findByName("Action and Adventure").get(0)));
 
-			// Create users: admin/admin user/user
-			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6",
-					"duongthienlee@gmail.com", "USER");
-			User user2 = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C",
-					"thienwinchester@gmail.com", "ADMIN");
-			urepository.save(user1);
-			urepository.save(user2);
+		
 
 			log.info("fetch all books");
 			for (Book book : brepository.findAll()) {
