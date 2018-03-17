@@ -73,7 +73,7 @@ public class BookController {
 	}
 
 	// Login
-	@RequestMapping(value = "/login")
+	@RequestMapping(value = {"/login","/"})
 	public String login() {
 		return "login";
 	}
