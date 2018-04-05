@@ -19,7 +19,13 @@
 		<input type="number" th:field="*{year}" />
 		<label for="price">Price</label>
 		<input type="text" th:field="*{price}" />
-		<input type="hidden" id="categoryid" th:field="*{category.categoryid}" />
+		<label for="categories">Category</label>
+		<select id="categoryList" th:field="*{category}">
+									<option th:each="category: ${categories}"
+										th:value="${category.categoryid}"
+										th:text="${category.name}">
+									</option>
+		</select>
 		<input type="submit" value="Save"></input>
 	</form>
 </div>

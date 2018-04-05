@@ -24,7 +24,7 @@ public class BookController {
 	private CategoryRepository crepository;
 
 	// Display books
-	@RequestMapping(value = "/booklist")
+	@RequestMapping(value = {"/booklist","/"})
 	public String books(Model model) {
 		model.addAttribute("books", brepository.findAll());
 		return "Listpage";
@@ -70,6 +70,7 @@ public class BookController {
 	@RequestMapping(value = "/edit{id}")
 	public String findBook(@PathVariable("id") Long bookid, Model model) {
 		model.addAttribute("book", brepository.findOne(bookid));
+		model.addAttribute("categories", crepository.findAll());
 		return "editBook";
 
 	}

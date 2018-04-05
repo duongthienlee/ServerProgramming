@@ -30,7 +30,8 @@
 				<th><b>Year</b></th>
 				<th><b>Category</b></th>
 				<th sec:authorize="hasRole('ADMIN')"> </th>
-				<th><b></b></th>
+				<th></th>
+				<th></th>
 			</tr>
 			<tr th:each="book : ${books}">
 				<td th:text="${book.author}"></td>
