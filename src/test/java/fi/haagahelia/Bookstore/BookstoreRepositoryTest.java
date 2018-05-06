@@ -24,31 +24,14 @@ public class BookstoreRepositoryTest {
 	@Autowired
 	private CategoryRepository crepository;
 
-	// Test create functionalities
+	// Test Add, Delete functionalities
 	@Test
-	public void createNewBook() {
+	public void TestBookCrud() {
+		// Add new book for testing
 		Book book = new Book("Book Test", "Thien Ly", "123232323-21", 1878, 50.5, new Category("History"));
 		repository.save(book);
-		// assert that the added book is in the Book repository
-		assertThat(repository.findOne(book.getId())).isNotNull();
-	}
 
-	@Test
-	public void createNewCategory() {
-		Category category = new Category("Geography");
-		crepository.save(category);
-		// assert that the added category is in the Category repository
-		assertThat(crepository.findOne(category.getCategoryid())).isNotNull();
-	}
-
-	// Test delete functionalities
-	@Test
-	public void deleteBook() {
-		// Add a new Book for testing
-		Book book = new Book("Book Test Will Be Deleted", "Thien Ly", "123232323-21", 1878, 50.5, new Category("IT"));
-		repository.save(book);
-
-		// assert that the added book is in the Book repository
+		// assert that the added book is saved to the Book repository
 		assertThat(repository.findOne(book.getId())).isNotNull();
 
 		// now delete the added book
@@ -59,8 +42,9 @@ public class BookstoreRepositoryTest {
 		assertThat(repository.exists(book.getId())).isFalse();
 	}
 
+	// Test Add, Delete functionalities
 	@Test
-	public void deleteCategory() {
+	public void TestCategoryCrud() {
 		// Add a new Category for testing
 		Category category = new Category("IT");
 		crepository.save(category);
