@@ -6,3 +6,6 @@ Account for testing:
 account: user
 <br>
 password: password
+<br>
+account: admin 
+password: password
